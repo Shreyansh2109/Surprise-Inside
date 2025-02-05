@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <!-- Add your CSS styles here if needed -->
+</head>
+<body>
+    <header>
+        <h1>Product Details</h1>
+    </header>
+
+    <main>
+        <div class="product-details">
+            <h2 id="productName">Product Name</h2>
+            <p id="productPrice">Price: $0.00</p>
+            <img id="productImage" src="" alt="Product Image" width="200" height="200">
+        </div>
+    </main>
+
+    <footer>
+        <!-- Add any footer content here if needed -->
+    </footer>
+
+    <!-- Include your JavaScript code to fetch and display product details -->
+    <script>
+        // Retrieve the productId from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get("productId");
+
+        // Define product details based on productId (you can customize this)
+        let productName = "";
+        let productPrice = "";
+        let productImageSrc = "";
+
+        switch (productId) {
+            case "1":
+                productName = "Family illustration Art";
+                productPrice = "Price: $1199";
+                productImageSrc = "IMG-20230514-WA0008.jpg";
+                break;
+            case "2":
+                productName = "Another Product Name";
+                productPrice = "Price: $999";
+                productImageSrc = "another_image.jpg";
+                break;
+            // Add more cases for other product IDs as needed
+        }
+
+        // Set the retrieved product details on the page
+        document.getElementById("productName").textContent = productName;
+        document.getElementById("productPrice").textContent = productPrice;
+        document.getElementById("productImage").src = productImageSrc;
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Surpeise Inside</title>
+    <script src="formaction.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        body {
+            background: rgb(3, 49, 184);
+            background: radial-gradient(circle, rgba(3, 49, 184, 1) 0%, rgba(0, 2, 103, 1) 0%, rgba(7, 0, 71, 1) 100%);
+        }
+
+        .register .nav-tabs .nav-link:hover {
+            border: none;
+        }
+
+        .text-align {
+            padding: 10%;
+        }
+
+        .form-new {
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 500px;
+        }
+
+        .register-heading {
+            text-align: center;
+            margin-bottom: 10%;
+            color: #e9ecef;
+        }
+
+        .register-heading h1 {
+            margin-bottom: 10%;
+        }
+
+        .register {
+            background: -webkit-linear-gradient(left, #03366d, #001743);
+            margin-top: 3%;
+            padding: 3%;
+            border-radius: 2.5rem;
+        }
+
+        .btnSubmit {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            color: #fff;
+            background-color: #06496f;
+            border: none;
+            cursor: pointer;
+            color: rgb(246, 246, 252);
+            margin-top: 4%;
+        }
+        #selectProduct{
+            background-color: #ffffff;
+            border: 2px solid black;
+            border-radius: 0.5rem;
+        }
+        #SubProduct{
+            background-color: cadetblue;
+            border: 2px solid black;
+
+        }
+        #price{
+            background-color:antiquewhite;
+            border-radius: 0.25rem;
+            border: 3px solid black;
+            color: black;
+        }
+
+  #recaptchaError {
+    display: none;
+    color: red;
+    text-align: center;
+  }
+
+
+    </style>
+</head>
+
+
+<body>
+    <div class="container register">
+        <div>
+            <button type="button" class="btn-close btn-close-white float-end" aria-label="Close" onclick="gotohome()"
+                style="color: aliceblue;"></button>
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="text-center">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="New Nav logo.png" class="img-fluid" width="40%">
+                        </a>
+                    </div>
+                </div>
+                <form onsubmit="return gotowhatsapp()">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel"
+                        aria-labelledby="home-tab">
+                        <h3 class="register-heading">Please Fill The Following Details</h3>
+                        <div class="row register-form">
+                            <div class="col-md-12">
+
+                                    <div class="form-group">
+                                        <input type="text" name="Name" id="name" class="form-control"
+                                            placeholder="Your Name *" value="" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="Email" id="email" class="form-control"
+                                            placeholder="Your Email *"
+                                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="tel" name="Phone" id="phone" class="form-control"
+                                            placeholder="Contact Number:-74XXXXXX09*" pattern="[0-9]{10}" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="Address" id="Address" class="form-control"
+                                            placeholder="Your Address *" value="" required />
+                                    </div>
+                                    <div class="form-group" id="selectProduct">
+                                        <select class="form-control" id="Product" required>
+                                            <option value="" disabled selected>Select Your Product</option>
+                                            <option value="IllustrationArt">Illustration Art</option>
+                                            <option value="ChocolateBouquet">Chocolate Bouquet</option>
+                                            <option value="SurpriseBox">Surprise Box</option>
+                                            <option value="ExplosionBox">Explosion box</option>
+                                        </select>
+
+                                        <!-- Sub-dropdown or additional select options -->
+                                        <select class="form-control" id="SubProduct">
+                                            <option value="" disabled selected>Select Product Category</option>
+                                            <!-- Options based on the selection -->
+                                        </select>
+                                    </div>
+
+                                    <p id="price"><b>Product Price: <span id="Price"></b></span><br><b
+                                            style="color:rgb(18, 129, 177)">**Plus Shipping Charges</b></p>
+                                    <div>
+                                        <h6 style="color: cadetblue; text-align:left">**Please include the images relevant
+                                            to your product after submitting the form.</h6>
+                                    </div>
+                                    <div class="g-recaptcha" data-sitekey="6Le-MuYmAAAAAKhSWyRUSd3ZBE5uXcBRKFlBF6P4" required></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+
+                    <div>
+                        <img id="productImage" id="proimage" src="" alt="Show when you selected an item.." style="color: #164c9e;"
+                            class="img-fluid img-thumbnail" width="1080" height="830" >
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1">
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btnSubmit btn-block" value="Submit" />
+                    </div>
+                    <div class="form-group">
+                        <input type="button" name="Close" class="btnSubmit btn-block bg-danger"
+                            onclick="gotohome()" value="Close" />
+                    </div>
+                </div>
+                <div id="recaptchaError">
+                    Please complete the reCAPTCHA to submit the form.
+                  </div>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+$(document).ready(function() {
+    var subProductOptions = []; // Define subProductOptions outside the event handlers
+
+    // Handle change event on the main product dropdown
+    $('#Product').change(function() {
+        var selectedProduct = $(this).val();
+
+        // Add sub-options based on the selected product
+        switch (selectedProduct) {
+            case 'IllustrationArt':
+                subProductOptions = [
+                    { name: 'Family illustration Art', price: 1199, imageUrl: 'IMG-20230514-WA0008.jpg' },
+                    { name: 'Couple illustration Art', price: 749, imageUrl: 'IMG-20230517-WA0015.jpg' },
+                    { name: 'Painted illustration Art', price: 999, imageUrl: 'IMG-20230517-WA0017.jpg' },
+                    { name: 'Portrait illustration Art', price: 599, imageUrl: '46d7f1fd07df59ea7bcc7f52ec7e989f.jpg' },
+                    { name: 'Atmospheric illustration Art', price: 1099, imageUrl: 'Atmospheric illustrations.jpg' }
+                ];
+                break;
+            case 'ChocolateBouquet':
+                subProductOptions = [
+                    { name: 'Chocolate Bouquet', price: 849, imageUrl: 'Chocolate bouquet.jpg' },
+                    { name: 'Chocolate Bouquet + Photo', price: 949, imageUrl: 'Chocolate bouquet + photo.jpg' },
+                    { name: 'Chocolate Air Balloon', price: 499, imageUrl: 'Chocolate air balloon.jpg' }
+                ];
+                break;
+            case 'SurpriseBox':
+                subProductOptions = [
+                    { name: 'Surprise Box With Candle', price: 1199, imageUrl: 'Surprise box with candle.jpg' },
+                    { name: 'Surprise Box', price: 1099, imageUrl: 'Surprise Box.jpg' },
+                    { name: 'Rakhi Special Box', price: 749, imageUrl: 'Rakhi surprise box.jpg' }
+                ];
+                break;
+            case 'ExplosionBox':
+                subProductOptions = [
+                    { name: '1 Layer Explosion Box', price: 949, imageUrl: 'Explosion box.jpg' },
+                    { name: '2 Layer Explosion Box', price: 1199, imageUrl: '2 layer Explosion box.jpg' },
+                    { name: '3 Layer Explosion Box', price: 1299, imageUrl: '3 layer Explosion box.jpg' },
+                    { name: '4 Layer Explosion Box', price: 1399, imageUrl: '4 layer Explosion box.jpg' },
+                    { name: '5 Layer Explosion Box', price: 1499, imageUrl: '5 layer Explosion box.jpg' },
+                    { name: 'Chocolate Explosion Box', price: 849, imageUrl: 'Chocolate explosion box.jpg' }
+                ];
+                break;
+            default:
+                // Clear sub-options if no product is selected
+                subProductOptions = [];
+                break;
+        }
+
+        // Populate the sub-product dropdown with the new options
+        var subProductDropdown = $('#SubProduct');
+        subProductDropdown.empty();
+
+        if (subProductOptions.length > 0) {
+            $.each(subProductOptions, function(index, option) {
+                subProductDropdown.append($('<option></option>').text(option.name).attr('data-price', option.price));
+            });
+        } else {
+            subProductDropdown.append($('<option></option>').text('Please Select Product'));
+        }
+
+        // Update the image based on the selected sub-product
+        var selectedSubProduct = subProductDropdown.val();
+        var selectedSubProductOption = subProductOptions.find(function(option) {
+            return option.name === selectedSubProduct;
+        });
+
+        if (selectedSubProductOption) {
+            $('#productImage').attr('src', selectedSubProductOption.imageUrl);
+        } else {
+            // Show a default image if no sub-product is selected or no matching sub-product option is found
+            $('#productImage').attr('src', 'path/to/default_image.jpg');
+        }
+    });
+
+    // Handle change event on the sub-product dropdown
+    $('#SubProduct').change(function() {
+        var selectedSubProduct = $(this).val();
+        var selectedSubProductOption = subProductOptions.find(function(option) {
+            return option.name === selectedSubProduct;
+        });
+
+        if (selectedSubProductOption) {
+            $('#productImage').attr('src', selectedSubProductOption.imageUrl);
+            $('#Price').text(selectedSubProductOption.price); // Display the selected sub-product price
+        } else {
+            // Show a default image if no sub-product is selected or no matching sub-product option is found
+            $('#productImage').attr('src', 'path/to/default_image.jpg');
+            $('#Price').text(''); // Clear the price if no sub-product is selected
+        }
+    });
+});
+
+    </script>
+</body>
+
+</html>
+
+    <svg id="loader" viewBox="0 0 100 100">
+        <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6">
+            <!-- left line -->
+            <path d="M 21 40 V 59">
+                <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          values="0 21 59; 180 21 59"
+          dur="2s"
+          repeatCount="indefinite" />
+            </path>
+            <!-- right line -->
+            <path d="M 79 40 V 59">
+                <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          values="0 79 59; -180 79 59"
+          dur="2s"
+          repeatCount="indefinite" />
+            </path>
+            <!-- top line -->
+            <path d="M 50 21 V 40">
+                <animate
+          attributeName="d"
+          values="M 50 21 V 40; M 50 59 V 40"
+          dur="2s"
+          repeatCount="indefinite" />
+            </path>
+            <!-- btm line -->
+            <path d="M 50 60 V 79">
+                <animate
+          attributeName="d"
+          values="M 50 60 V 79; M 50 98 V 79"
+          dur="2s"
+          repeatCount="indefinite" />
+            </path>
+            <!-- top box -->
+            <path d="M 50 21 L 79 40 L 50 60 L 21 40 Z">
+            <animate
+          attributeName="stroke"
+          values="rgba(255,255,255,1); rgba(100,100,100,0)"
+          dur="2s"
+          repeatCount="indefinite" />
+            </path>
+            <!-- mid box -->
+            <path d="M 50 40 L 79 59 L 50 79 L 21 59 Z"/>
+            <!-- btm box -->
+            <path d="M 50 59 L 79 78 L 50 98 L 21 78 Z">
+            <animate
+          attributeName="stroke"
+          values="rgba(100,100,100,0); rgba(255,255,255,1)"
+          dur="2s"
+          repeatCount="indefinite" />
+            </path>
+            <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="translate"
+          values="0 0; 0 -19"
+          dur="2s"
+          repeatCount="indefinite" />
+        </g>
+    </svg>

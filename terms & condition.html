@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Surpeise Inside</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="formaction.js"></script>
+
+    <!--Fabicon-->
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+    <style>
+        body {
+            background-image: url('background.jpg');
+            /* background-repeat: no-repeat; */
+            background-attachment: fixed;
+        }
+
+        .register .nav-tabs .nav-link:hover {
+            border: none;
+        }
+
+        .text-align {
+            padding: 10%;
+        }
+
+        .form-new {
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 500px;
+        }
+
+        .register-heading {
+            text-align: center;
+            margin-bottom: 10%;
+            color: #e9ecef;
+        }
+
+        .register-heading h1 {
+            margin-bottom: 10%;
+        }
+
+        .register {
+            background-image: url('dark-blue-plain-wall-background_53876-92976.avif');
+            margin-top: 3%;
+            padding: 3%;
+            border-radius: 2.5rem;
+        }
+
+        .btnSubmit {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            color: #fff;
+            background-color: #06496f;
+            border: none;
+            cursor: pointer;
+            color: rgb(246, 246, 252);
+            margin-top: 4%;
+        }
+        .inputfile {
+	        width: 0.1px;
+	        height: 0.1px;
+	        opacity: 0;
+	        overflow: hidden;
+	        position: absolute;
+	        z-index: -1;
+        }
+        .inputfile + label {
+            border-radius: 0.5rem;
+            font-size: 1.25em;
+            font-weight: 700;
+            color: rgb(19, 19, 19);
+            background-color: rgba(9, 82, 177, 0.498);
+            display: inline-block;
+        }
+
+        .inputfile:focus + label,
+        .inputfile + label:hover {
+            background-color: rgb(0, 38, 255);
+        }
+        .inputfile + label {
+	    cursor: pointer; /* "hand" cursor */
+        }
+        .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container img {
+        max-width: 50%;
+        height: 10%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-12" >
+                <button type="button" class="btn-close btn-close-white float-end"  aria-label="Close" onclick="gotohome()" style="color: aliceblue;"></button>
+                <div class="container col-lg-6">
+                    <img src="Nav logo.png" class="img-fluid" onclick="callindex()">
+                </div>
+                    <h2 style="color: aliceblue; text-decoration: underline;">Terms & Conditions</h2><br><br>
+                    <div class="col-11" >
+
+
+                        <h5 style="color: antiquewhite ; text-align: justify;">Please read these Terms and Conditions carefully before using the services offered by Surprise Inside.These Terms apply to all users of our website and customers of our art and craft products.
+                        By accessing or using our services, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not access our services.</h5><br><br>
+
+                        <p style="color: antiquewhite; text-align: justify;"><b>1. Pricing and Shipping Charges</b> <br><br>1.1. Please note that the price listed on our website does not include the shipping charges. The final price of the product will be calculated by adding the applicable shipping charges . <br>1.2. The shipping charges may vary based on the delivery location,
+                         shipping method, and any applicable taxes or duties.<br>1.3. The Price Of The Product will Vary As Per Your Requirements.</p>
+
+                        <p style="color: antiquewhite; text-align: justify;"><b>2. Orders and Payments</b> <br><br>2.1. All orders placed through our website are subject to acceptance by us. We reserve the right to reject or cancel any order for any reason. <br>2.2. Please note that 50% of the payment is required in advance at the time of confirming your order, while the remaining 50% is to be made after the shipment of your order.
+                         We accept only online payment methods. Cash on Delivery is not possible</p>
+
+                        <p style="color: antiquewhite; text-align: justify;"><b>3. Shipping and Delivery</b> <br><br>3.1. We will make reasonable efforts to ship the products to the address provided by you during the order placement process within the estimated delivery time. However, we do not guarantee delivery dates or times. <br>3.2. You are responsible for providing accurate and complete shipping information.
+                        We shall not be held liable for any delays, losses, or additional charges arising due to incorrect or incomplete shipping details provided by you.<br>3.3. Additionally, we provide the option for you to track your order, allowing you to stay informed about the whereabouts of your product throughout the shipping process.</p>
+
+                        <p style="color: antiquewhite; text-align: justify;"><b>4. Return Policy</b><br>4.1. We have a strict no return policy. Once the product is delivered to you, it is considered a final sale and cannot be returned or exchanged. </p>
+
+                        <p style="color: antiquewhite; text-align: justify;"><b>5. Intellectual Property</b> <br>5.1. All intellectual property rights, including copyrights, trademarks, and designs, associated with our products, website content, and branding, belong to Surprise Inside. You agree not to reproduce, modify, distribute, or exploit any intellectual property without our prior written consent.</p>
+
+                        <p style="color: antiquewhite; text-align: justify;"><b>6. Modifications to the Terms</b> <br>6.1. We reserve the right to modify or amend these Terms at any time. Any changes will be effective immediately upon posting the revised Terms on our website. Your continued use of our services after the posting of any changes constitutes acceptance of those changes.</p>
+
+                        <p style="color: rgb(19, 197, 147); text-align: justify;"><br><br>**Please note that these Terms and Conditions are a legally binding agreement between you and Surprise Inside. It is important to review them carefully before engaging in any transactions with us.</p>
+
+                        <br><br>
+                        <div class="form-group">
+                            <input type="button" name="Close" class="btnSubmit btn-block bg-light text-bg-warning" onclick="gotohome()" value="Close" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+
